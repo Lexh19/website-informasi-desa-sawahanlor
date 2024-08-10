@@ -1,6 +1,4 @@
-@php
-    $home = get_homes_value('key');
-@endphp
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,39 +28,41 @@
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about us">About us </a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Our gallery</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#service">Service</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact us">Contact Us
-                </a></li>
-            </ul>
-        </div>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#aboutus">About us </a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Our gallery</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#service">Service</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact us">Contact Us
+                        </a></li>
+                    </ul>
+                </div>
         </div>
     </nav>
 
-    <!-- Home-->
-    <header class="masthead  text-black text-center" id="home">
-        <div class="container d-flex align-items-center flex-column">
-        <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{$key->title}}</h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <!-- Masthead Subheading-->
-            <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
-        </div>
-    </header>
+<!-- Home -->
+@if($homes->isNotEmpty())
+    @foreach($homes as $home)
+        <section class="masthead text-center" id="home">
+            <div class="container d-flex align-items-center flex-column">
+                <img class="first-slide" src="{{ $home->img }}" alt="First slide">
+                <h1 class="masthead-heading text-uppercase text-black mb-0">{{ $home->title }}</h1>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <p class="masthead-subheading font-weight-light text-uppercase text-black mb-0">{{ $home->subtitle }}</p>
+            </div>
+        </section>
+    @endforeach
+@endif
+
+
 
     <!-- About Us Section-->
-    <section class="page-section portfolio" id="about us">
+    <section class="page-section portfolio" id="aboutus">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">About us</h3>
             <div class="row justify-content-center align-items-center mt-4">
