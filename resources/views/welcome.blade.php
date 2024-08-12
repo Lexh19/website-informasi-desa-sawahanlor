@@ -34,7 +34,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#aboutus">About us </a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Our gallery</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#service">Service</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact us">Contact Us
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contactus">Contact Us
                         </a></li>
                     </ul>
                 </div>
@@ -44,20 +44,16 @@
 <!-- Home -->
 @if($homes->isNotEmpty())
     @foreach($homes as $home)
-        <section class="masthead text-center" id="home">
+        <section class="masthead text-center" id="{{ Str::slug($home->title, '-') }}">
             <div class="container d-flex align-items-center flex-column">
-                <img class="first-slide" src="{{ $home->img }}" alt="First slide">
+                <img class="first-slide" src="{{ asset($home->img) }}" alt="First slide">
                 <h1 class="masthead-heading text-uppercase text-black mb-0">{{ $home->title }}</h1>
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
                 <p class="masthead-subheading font-weight-light text-uppercase text-black mb-0">{{ $home->subtitle }}</p>
             </div>
         </section>
     @endforeach
 @endif
+
 
 
 
@@ -76,17 +72,23 @@
         </div>
         <h1 class="mt-4 ">Pencapaian Pembangunan Berkelanjutan</h1>
         <div class="row justify-content-center align-items-center mt-5">
-            <div class="col-3">
+            <div class="col-2">
                 <img src="assets/img/sdgs/1.svg" alt="">
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <img src="assets/img/sdgs/2.svg" alt="">
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <img src="assets/img/sdgs/3.svg" alt="">
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <img src="assets/img/sdgs/4.svg" alt="">
+            </div>
+            <div class="col-2">
+                <img src="assets/img/sdgs/5.svg" alt="">
+            </div>
+            <div class="col-2">
+                <img src="assets/img/sdgs/6.svg" alt="">
             </div>
         </div>
     </section>
@@ -168,7 +170,7 @@
 
 
     <!-- Contact Us Section-->
-    <section class="page-section text-black mb-0" id="contact us">
+    <section class="page-section text-black mb-0" id="contactus">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">CONTACT US</h3>
             <div class="row justify-content-center align-items-center mt-4">
