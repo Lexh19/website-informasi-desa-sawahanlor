@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\servis;
+use App\Models\Servis;
 use Illuminate\Http\Request;
 use App\Http\Requests\ServisRequest;
 
@@ -14,7 +14,7 @@ class servisController extends Controller
      */
     public function index()
     {
-        $serviss = servis::all();
+        $serviss = Servis::all();
         return view('welcome', compact('serviss'));
     }
 
