@@ -45,6 +45,12 @@ class HomeResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('subtitle')
+                    ->sortable()
+                    ->searchable()
+                    ->formatStateUsing(function ($state) {
+                    return strip_tags($state);
+                }),
                 Tables\Columns\ImageColumn::make('img')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

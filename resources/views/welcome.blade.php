@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,23 +21,25 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-primary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top">Sawahan Lor</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#aboutus">About us </a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Our gallery</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#service">Service</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contactus">Contact Us
-                        </a></li>
-                    </ul>
-                </div>
+            <a class="navbar-brand" href="#page-top">
+                <img src="assets/img/logo/logo-sawahan.png"  height="100%" width="50%">
+            </a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#aboutus">About us</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Our gallery</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#service">Service</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contactus">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
+
 
 <!-- Home -->
 @if($homes->isNotEmpty())
@@ -55,7 +55,7 @@
 
 
     <!-- About Us Section-->
-    <section class="page-section portfolio" id="aboutus">
+    <section class="about mt-5" id="aboutus">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">About us</h3>
         @if(!empty($abouts))
@@ -96,12 +96,12 @@
     </section>
 
     <!-- Our gallery Section-->
-    <section class="gallery" id="gallery">
+    <section class="gallery mt-5" id="gallery">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading"> Our gallery</h3>
             <div class="row justify-content-center align-items-center mt-4">
-                <div class="col-12">
-                    <p>Berikut beberapa galeri keindahan dan keunikan di Dusun Sawahan Lor melalui gambar dan video yang telah diabadikan. Setiap foto dan video dalam galeri ini menggambarkan kekayaan alam, budaya, dan kehidupan sehari-hari masyarakat Sawahan Lor.</p>
+                <div class="col-12 text-center">
+                    <p class="custom-font-size">Berikut beberapa galeri keindahan dan keunikan di Dusun Sawahan Lor melalui gambar dan video yang telah diabadikan. Setiap foto dan video dalam galeri ini menggambarkan kekayaan alam, budaya, dan kehidupan sehari-hari masyarakat Sawahan Lor.</p>
                 </div>
             @if(!empty($gallerys))
                 @foreach($gallerys as $gallery)
@@ -123,12 +123,12 @@
 
 
 <!-- Service Section-->
-<section class="servis" id="service">
+<section class="servis mt-5" id="service">
     <div class="container d-flex align-items-center flex-column">
         <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Service</h3>
         <div class="row justify-content-center align-items-center mt-4">
-            <div class="col-12">
-                <p>Dusun Sawahan Lor menawarkan berbagai paket wisata yang dirancang untuk memberikan pengalaman tak terlupakan. Berikut adalah beberapa paket yang kami sediakan:</p>
+            <div class="text-center">
+                <p class="custom-font-size">Dusun Sawahan Lor menawarkan berbagai paket wisata yang dirancang untuk memberikan pengalaman tak terlupakan. Berikut adalah beberapa paket yang kami sediakan:</p>
             </div>
             @if(!empty($serviss))
                 @foreach($serviss as $servis)
@@ -156,26 +156,26 @@
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">CONTACT US</h3>
             <div class="row justify-content-center align-items-center mt-4">
-                <div class="col-12">
-                    <p class="text-justify">Kami senang mendengar dari Anda! Jika Anda memiliki pertanyaan, membutuhkan informasi lebih lanjut, atau ingin melakukan reservasi, silakan hubungi kami melalui salah satu cara berikut:</p>
+                <div class="text-center">
+                    <p class="custom-font-size">Kami senang mendengar dari Anda! Jika Anda memiliki pertanyaan, membutuhkan informasi lebih lanjut, atau ingin melakukan reservasi, silakan hubungi kami melalui salah satu cara berikut:</p>
                 </div>
                 <div class="col-12 d-flex justify-content-center mt-4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376.02461248728076!2d110.43951854207349!3d-7.710768991175097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5b006b2818b3%3A0x4d2e053af56fa13e!2sBULAK%20SAWAH!5e1!3m2!1sid!2sid!4v1722841034211!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376.02461248728076!2d110.43951854207349!3d-7.710768991175097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5b006b2818b3%3A0x4d2e053af56fa13e!2sBULAK%20SAWAH!5e1!3m2!1sid!2sid!4v1722841034211!5m2!1sid!2sid" width="680" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
 
-
     <!-- Copyright Section-->
-    <<div class="copyright py-4 text-left text-white">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-6 text-left">
-                    <meidium>Copyright &copy; 2024 Created and Development by KKN UNY</meidium>
-                </div>
-                <div class="col-md-6 text-right">
+<div class="copyright py-4 text-left text-white">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 text-left">
+                <medium>Copyright &copy; 2024 Created and Developed by KKN UNY</medium>
+            </div>
+            <div class="col-md-6 text-md-right text-left">
+                <div class="d-flex justify-content-end">
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-youtube"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-instagram"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
@@ -184,6 +184,8 @@
             </div>
         </div>
     </div>
+</div>
+
 
 
     <!-- Bootstrap core JS-->
@@ -196,5 +198,5 @@
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
 
-  </body>
+</body>
 </html>

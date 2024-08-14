@@ -11077,6 +11077,10 @@ html {
 }
 
 
+    .custom-font-size {
+        font-size: 22px;
+    }
+
 
 .copyright {
   background-color: #2D2D2D;

@@ -41,41 +41,47 @@ class ServisResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('img')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->after(function (Collection
-                $records) {
-                    foreach ($records as $key => $value) {
-                        if($value->img){
-                            Storage::disk('public')->delete($value->img);
-                        }
+        ->columns([
+            Tables\Columns\TextColumn::make('title')
+                ->sortable()
+                ->searchable(),
+            Tables\Columns\TextColumn::make('subtitle')
+                ->sortable()
+                ->searchable()
+                ->formatStateUsing(function ($state) {
+                    return strip_tags($state);
+                }),
+            Tables\Columns\ImageColumn::make('img')
+                ->searchable(),
+            Tables\Columns\TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            Tables\Columns\TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\DeleteBulkAction::make()->after(function (Collection
+            $records) {
+                foreach ($records as $key => $value) {
+                    if($value->img){
+                        Storage::disk('public')->delete($value->img);
                     }
                 }
-            ),
-                ]),
-            ]);
-    }
+            }
+        ),
+            ]),
+        ]);
+}
 
     public static function getRelations(): array
     {
