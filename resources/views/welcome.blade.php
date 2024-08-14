@@ -44,32 +44,34 @@
 <!-- Home -->
 @if($homes->isNotEmpty())
     @foreach($homes as $home)
-        <section class="masthead text-center" id="{{ Str::slug($home->title, '-') }}">
-            <div class="container d-flex align-items-center flex-column">
-                <img class="first-slide" src="{{ asset($home->img) }}" alt="First slide">
-                <h1 class="masthead-heading text-uppercase text-black mb-0">{{ $home->title }}</h1>
-                <p class="masthead-subheading font-weight-light text-uppercase text-black mb-0">{{ $home->subtitle }}</p>
+    <section class="masthead text-center" id="home" style="background-image: url('{{ asset('storage/' . $home->img) }}');" >
+        <div class="container d-flex align-items-center flex-column">
+                <h1 class="masthead-heading text-uppercase text-white mb-0">{{ $home->title }}</h1>
+                <p class="masthead-subheading font-weight-light text-white mb-0">{{ $home->subtitle }}</p>
             </div>
         </section>
     @endforeach
 @endif
 
 
-
-
     <!-- About Us Section-->
     <section class="page-section portfolio" id="aboutus">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">About us</h3>
+        @if(!empty($abouts))
+            @foreach($abouts as $about)
             <div class="row justify-content-center align-items-center mt-4">
-            <div class="col 6">
-                <h3> Menuju Desa Wisata Berkelanjutan untuk Kesejahteraan dan Kemandirian</h3>
+                <div class="col 6">
+                    <h3>{{ $about->title }}</h3>
+                </div>
+                <div class="col-6">
+                    <p>{{ $about->subtitle }}</p>
+                </div>
             </div>
-            <div class="col-6">
-                <p>Pada awalnya, Dusun Sawahan Lor menghadapi berbagai tantangan ekonomi. Namun, sejak pengembangan desa wisata dimulai pada tahun 2008, dusun ini mengalami transformasi yang luar biasa. Kini, Sawahan Lor tidak hanya mandiri secara ekonomi, tetapi juga menjadi teladan bagi desa-desa lain dalam mengembangkan potensi alam dan budaya mereka.</p>
-            </div>
-
-        </div>
+        @endforeach
+        @else
+            <p>No services available at the moment.</p>
+        @endif
         <h1 class="mt-4 ">Pencapaian Pembangunan Berkelanjutan</h1>
         <div class="row justify-content-center align-items-center mt-5">
             <div class="col-2">
@@ -94,79 +96,59 @@
     </section>
 
     <!-- Our gallery Section-->
-    <section class="page-section portfolio" id="gallery">
+    <section class="gallery" id="gallery">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="page-section-heading text-center text-uppercase text-black contact-heading"> Our gallery</h3>
             <div class="row justify-content-center align-items-center mt-4">
                 <div class="col-12">
                     <p>Berikut beberapa galeri keindahan dan keunikan di Dusun Sawahan Lor melalui gambar dan video yang telah diabadikan. Setiap foto dan video dalam galeri ini menggambarkan kekayaan alam, budaya, dan kehidupan sehari-hari masyarakat Sawahan Lor.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 mt-4">
-                    <div class="card h-100 text-center">
-                        <img src="assets/img/paket/downloada.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Title</h5>
+            @if(!empty($gallerys))
+                @foreach($gallerys as $gallery)
+                    <div class="col-md-4 col-sm-6 mt-4">
+                        <div class="card h-100 text-center">
+                            <img src="{{ asset('storage/' . $gallery->img) }}" class="card-img-top" >
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $gallery->title  }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mt-4">
-                    <div class="card h-100 text-center">
-                        <img src="assets/img/paket/downloadb.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Title</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mt-4">
-                    <div class="card h-100 text-center">
-                        <img src="assets/img/paket/downloadb.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Title</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            @else
+                <p>No services available at the moment.</p>
+            @endif
         </div>
+    </div>
     </section>
 
+
 <!-- Service Section-->
-<section class="page-section portfolio" id="service">
+<section class="servis" id="service">
     <div class="container d-flex align-items-center flex-column">
         <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Service</h3>
         <div class="row justify-content-center align-items-center mt-4">
             <div class="col-12">
                 <p>Dusun Sawahan Lor menawarkan berbagai paket wisata yang dirancang untuk memberikan pengalaman tak terlupakan. Berikut adalah beberapa paket yang kami sediakan:</p>
             </div>
-            <div class="col-md-4 col-sm-6 mt-4">
-                <div class="card h-100 text-center">
-                    <img src="assets/img/paket/downloada.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">Subtitle</p>
+            @if(!empty($serviss))
+                @foreach($serviss as $servis)
+                    <div class="col-md-4 col-sm-6 mt-4">
+                        <div class="card h-100 text-center">
+                            <img src="{{ asset('storage/' . $servis->img) }}" class="card-img-top" >
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $servis->title  }}</h5>
+                                <p class="card-text">{{ $servis->subtitle }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mt-4">
-                <div class="card h-100 text-center">
-                    <img src="assets/img/paket/downloadb.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">Subtitle</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mt-4">
-                <div class="card h-100 text-center">
-                    <img src="assets/img/paket/downloadb.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">Subtitle</p>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            @else
+                <p>No services available at the moment.</p>
+            @endif
         </div>
     </div>
 </section>
+
 
 
     <!-- Contact Us Section-->
@@ -212,6 +194,7 @@
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
+
   </body>
 </html>

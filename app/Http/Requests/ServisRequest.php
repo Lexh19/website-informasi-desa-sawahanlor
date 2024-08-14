@@ -22,7 +22,9 @@ class ServisRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'subtitle' => 'required|string|max:255',
+            'img' => 'required|string|max:255',
         ];
     }
 }
