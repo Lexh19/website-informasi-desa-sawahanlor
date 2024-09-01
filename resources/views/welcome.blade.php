@@ -95,59 +95,59 @@
         </div>
     </section>
 
-    <!-- Our gallery Section-->
-    <section class="gallery mt-5" id="gallery">
-        <div class="container d-flex align-items-center flex-column">
-            <h3 class="page-section-heading text-center text-uppercase text-black contact-heading"> Our gallery</h3>
-            <div class="row justify-content-center align-items-center mt-4">
-                <div class="col-12 text-center">
-                    <p class="custom-font-size">Berikut beberapa galeri keindahan dan keunikan di Dusun Sawahan Lor melalui gambar dan video yang telah diabadikan. Setiap foto dan video dalam galeri ini menggambarkan kekayaan alam, budaya, dan kehidupan sehari-hari masyarakat Sawahan Lor.</p>
-                </div>
+    <!-- Our gallery Section -->
+<section class="gallery mt-5" id="gallery">
+    <div class="container d-flex align-items-center flex-column">
+        <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Our gallery</h3>
+        <div class="gallery-slider mt-4">
             @if(!empty($gallerys))
-                @foreach($gallerys as $gallery)
-                    <div class="col-md-4 col-sm-6 mt-4">
-                        <div class="card h-100 text-center">
-                            <img src="{{ asset('storage/' . $gallery->img) }}" class="card-img-top" >
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $gallery->title  }}</h5>
-                            </div>
+                <div class="gallery-wrapper">
+                    @foreach($gallerys as $gallery)
+                        <div class="gallery-item">
+                            <img src="{{ asset('storage/' . $gallery->img) }}" alt="Gallery Image">
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             @else
-                <p>No services available at the moment.</p>
+                <p>No gallery items available at the moment.</p>
             @endif
         </div>
     </div>
-    </section>
+</section>
+
+
 
 
 <!-- Service Section-->
 <section class="servis mt-5" id="service">
     <div class="container d-flex align-items-center flex-column">
         <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Service</h3>
-        <div class="row justify-content-center align-items-center mt-4">
-            <div class="text-center">
-                <p class="custom-font-size">Dusun Sawahan Lor menawarkan berbagai paket wisata yang dirancang untuk memberikan pengalaman tak terlupakan. Berikut adalah beberapa paket yang kami sediakan:</p>
-            </div>
-            @if(!empty($serviss))
-                @foreach($serviss as $servis)
-                    <div class="col-md-4 col-sm-6 mt-4">
-                        <div class="card h-100 text-center">
-                            <img src="{{ asset('storage/' . $servis->img) }}" class="card-img-top" >
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $servis->title  }}</h5>
-                                <p class="card-text">{{ $servis->subtitle }}</p>
+        <div class="slider-container">
+            <button class="prev-btn">‹</button>
+            <div class="slider-wrapper">
+                <div class="slider">
+                    @if(!empty($serviss))
+                        @foreach($serviss as $servis)
+                            <div class="slider-item">
+                                <div class="card h-100 text-center">
+                                    <img src="{{ asset('storage/' . $servis->img) }}" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $servis->title }}</h5>
+                                        <p class="card-text">{{ $servis->subtitle }}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
-            @else
-                <p>No services available at the moment.</p>
-            @endif
+                        @endforeach
+                    @else
+                        <p>No services available at the moment.</p>
+                    @endif
+                </div>
+            </div>
+            <button class="next-btn">›</button>
         </div>
     </div>
 </section>
+
 
 
 
@@ -192,6 +192,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

@@ -11085,3 +11085,81 @@ html {
 .copyright {
   background-color: #2D2D2D;
 }
+/* Gallery Section */
+.gallery-slider {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Adjust based on your design */
+    margin: 0 auto;
+}
+
+.gallery-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item {
+    min-width: 33.33%; /* Same as the service section */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 15px; /* Same padding as the service items */
+    margin-right: 20px; /* Add space between gallery items */
+}
+
+.gallery-item:last-child {
+    margin-right: 0; /* Remove the margin on the last item */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.25rem; /* Add a slight border-radius for consistency */
+    object-fit: cover; /* Ensure the images cover the area without distortion */
+}
+
+
+
+
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 1000px; /* Sesuaikan dengan lebar maksimal slider */
+}
+
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex; /* Membuat semua item berada dalam satu baris */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    min-width: 33.33%; /* Setiap item memiliki lebar 33.33% dari slider */
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
