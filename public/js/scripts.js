@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', event => {
         }
     }
 
-    setInterval(slideGallery, 3000);
+    setInterval(slideGallery, 2000);
 
 
     // Services Slider

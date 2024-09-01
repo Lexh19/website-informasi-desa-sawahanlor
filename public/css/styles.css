@@ -11095,13 +11095,13 @@ html {
 
 .gallery-wrapper {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.8s ease;
 }
 
 .gallery-item {
     min-width: 33.33%; /* Same as the service section */
     box-sizing: border-box; /* Include padding and border in width */
-    padding: 15px; /* Same padding as the service items */
+    padding: 10px; /* Same padding as the service items */
     margin-right: 20px; /* Add space between gallery items */
 }
 
@@ -11154,6 +11154,7 @@ html {
     padding: 10px;
     cursor: pointer;
     z-index: 10;
+    border-radius: 70%;
 }
 
 .prev-btn {
