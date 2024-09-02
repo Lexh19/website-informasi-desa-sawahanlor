@@ -34,7 +34,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #2D2D2D;
+  --bs-primary: #dee2e6;
   --bs-secondary: #2d2d2d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -42,7 +42,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 45, 45, 45;
+  --bs-primary-rgb:  255, 255, 255;
   --bs-secondary-rgb: 45, 45, 45;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -10904,7 +10904,7 @@ html {
   margin-top: 1rem;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
+  color: #000;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
   color: #3B5F89;
@@ -11001,7 +11001,7 @@ html {
     line-height: 2.5rem;
   }
 }
-<!--home-->
+
 .masthead {
     position: relative;
     width: 100%;
@@ -11012,6 +11012,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* Menghindari gambar meluber ke luar */
 }
 
 .masthead .container {
@@ -11023,10 +11024,11 @@ html {
 .masthead::before {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap dengan transparansi */
     z-index: 1;
 }
 
@@ -11053,7 +11055,12 @@ html {
 .copyright {
   background-color: #3B5F89;
 }
+
 /* Gallery Section */
+.gallery {
+    background-color: #E5E5E5; /* Light gray background */
+    padding: 60px 0; /* Space around the gallery section */
+}
 .gallery-slider {
     overflow: hidden;
     width: 100%;
