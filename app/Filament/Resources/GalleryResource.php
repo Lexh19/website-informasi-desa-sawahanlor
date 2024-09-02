@@ -17,7 +17,7 @@ class GalleryResource extends Resource
 {
     protected static ?string $model = Gallery::class;
 
-    protected static ?string $pluralModelLabel = "Dokumentasi";
+    protected static ?string $pluralModelLabel = "Galeri";
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
