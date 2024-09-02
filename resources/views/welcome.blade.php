@@ -154,7 +154,7 @@
     <!-- Contact Us Section-->
     <section class="page-section text-black mb-0" id="contactus">
         <div class="container d-flex align-items-center flex-column">
-            <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">CONTACT US</h3>
+            <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Contact Us</h3>
             <div class="row justify-content-center align-items-center mt-4">
                 <div class="text-center">
                     <p class="custom-font-size">Kami senang mendengar dari Anda! Jika Anda memiliki pertanyaan, membutuhkan informasi lebih lanjut, atau ingin melakukan reservasi, silakan hubungi kami melalui salah satu cara berikut:</p>
