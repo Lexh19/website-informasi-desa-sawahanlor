@@ -57,7 +57,7 @@
     <!-- About Us Section-->
     <section class="about mt-5" id="aboutus">
         <div class="container d-flex align-items-center flex-column">
-            <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">About us</h3>
+            <h3 class="page-section-heading text-center text-black contact-heading">About us</h3>
         @if(!empty($abouts))
             @foreach($abouts as $about)
             <div class="row justify-content-center align-items-center mt-4">
@@ -98,7 +98,7 @@
     <!-- Our gallery Section -->
 <section class="gallery mt-5" id="gallery">
     <div class="container d-flex align-items-center flex-column">
-        <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Our gallery</h3>
+        <h3 class="page-section-heading text-center text-black contact-heading">Our gallery</h3>
         <div class="gallery-slider mt-4">
             @if(!empty($gallerys))
                 <div class="gallery-wrapper">
@@ -115,13 +115,10 @@
     </div>
 </section>
 
-
-
-
 <!-- Service Section-->
 <section class="servis mt-5" id="service">
     <div class="container d-flex align-items-center flex-column">
-        <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Service</h3>
+        <h3 class="page-section-heading text-center text-black contact-heading">Service</h3>
         <div class="slider-container">
             <button class="prev-btn">‹</button>
             <div class="slider-wrapper">
@@ -149,18 +146,24 @@
 </section>
 
 
-
-
     <!-- Contact Us Section-->
-    <section class="page-section text-black mb-0" id="contactus">
+    <section class="contact mt-5" id="contactus">
         <div class="container d-flex align-items-center flex-column">
-            <h3 class="page-section-heading text-center text-uppercase text-black contact-heading">Contact Us</h3>
-            <div class="row justify-content-center align-items-center mt-4">
+            <h3 class="page-section-heading text-center text-black contact-heading">Contact Us</h3>
+            <div class="row justify-content-center align-items-center mb-7">
                 <div class="text-center">
                     <p class="custom-font-size">Kami senang mendengar dari Anda! Jika Anda memiliki pertanyaan, membutuhkan informasi lebih lanjut, atau ingin melakukan reservasi, silakan hubungi kami melalui salah satu cara berikut:</p>
                 </div>
-                <div class="col-12 d-flex justify-content-center mt-4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376.02461248728076!2d110.43951854207349!3d-7.710768991175097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5b006b2818b3%3A0x4d2e053af56fa13e!2sBULAK%20SAWAH!5e1!3m2!1sid!2sid!4v1722841034211!5m2!1sid!2sid" width="680" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="col-12 d-flex justify-content-center">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376.02461248728076!2d110.43951854207349!3d-7.710768991175097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5b006b2818b3%3A0x4d2e053af56fa13e!2sBULAK%20SAWAH!5e1!3m2!1sid!2sid!4v1722841034211!5m2!1sid!2sid"
+                        width="680"
+                        height="450"
+                        style="border:0; padding: 20px 0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
