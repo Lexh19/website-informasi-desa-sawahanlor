@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg bg-primary text-uppercase fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#page-top">
-                <img src="assets/img/logo/logo-sawahan.png"  height="100%" width="50%">
+                <img src="assets/img/logo/logo-sawahan.png"  height="100%" width="90%">
             </a>
             <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -72,27 +72,7 @@
         @else
             <p>No services available at the moment.</p>
         @endif
-        <h1 class="mt-4 ">Pencapaian Pembangunan Berkelanjutan</h1>
-        <div class="row justify-content-center align-items-center mt-5">
-            <div class="col-2">
-                <img src="assets/img/sdgs/1.svg" alt="">
-            </div>
-            <div class="col-2">
-                <img src="assets/img/sdgs/2.svg" alt="">
-            </div>
-            <div class="col-2">
-                <img src="assets/img/sdgs/3.svg" alt="">
-            </div>
-            <div class="col-2">
-                <img src="assets/img/sdgs/4.svg" alt="">
-            </div>
-            <div class="col-2">
-                <img src="assets/img/sdgs/5.svg" alt="">
-            </div>
-            <div class="col-2">
-                <img src="assets/img/sdgs/6.svg" alt="">
-            </div>
-        </div>
+
     </section>
 
     <!-- Our gallery Section -->
