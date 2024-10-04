@@ -5,15 +5,13 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use App\Models\Home;
 use Filament\Tables;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use App\Filament\Resources\HomeResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\HomeResource\RelationManagers;
 
 class HomeResource extends Resource
 {
@@ -33,8 +31,19 @@ class HomeResource extends Resource
                 Forms\Components\RichEditor::make('subtitle')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\FileUpload::make('img')
-                    ->required()->image()->disk('public'),
+                FileUpload::make('img')
+                    ->multiple()
+                    ->required()
+                    ->image()
+                    ->disk('public')
+                    ->enableReordering()
+                    ->columnSpanFull()
+                    ->reactive()
+                    ->afterStateUpdated(function ($state) {
+                        if (!is_array($state)) {
+                            throw new \Exception("File upload must be an array.");
+                        }
+                    }),
             ]);
     }
 
@@ -48,46 +57,25 @@ class HomeResource extends Resource
                 Tables\Columns\TextColumn::make('subtitle')
                     ->sortable()
                     ->searchable()
-                    ->formatStateUsing(function ($state) {
-                    return strip_tags($state);
-                }),
-                Tables\Columns\ImageColumn::make('img')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
+                    ->formatStateUsing(fn($state) => strip_tags($state)),
+                ImageColumn::make('img')
+                    ->label('Images')
+                    ->getStateUsing(function ($record) {
+                        $images = $record->getImagesAttribute();
+                        return array_slice(array_map(fn($image) => Storage::url($image), $images), 0, 3);
+                    })
+                    ->disk('public'),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->after(function (Collection
-                $records) {
-                    foreach ($records as $key => $value) {
-                        if($value->img){
-                            Storage::disk('public')->delete($value->img);
-                        }
-                    }
-                }
-            ),
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

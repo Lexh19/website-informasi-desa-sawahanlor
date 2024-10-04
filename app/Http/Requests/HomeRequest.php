@@ -6,25 +6,30 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class HomeRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true; // Mengizinkan semua pengguna
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
             'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
-            'img' => 'required|string|max:255',
+            'subtitle' => 'required|string',
+            'img' => 'nullable|array',
+            'img.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000', // Validasi gambar
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Judul harus diisi.',
+            'subtitle.required' => 'Subtitle harus diisi.',
+            'img.*.required' => 'Setidaknya satu gambar harus diunggah.',
+            'img.*.image' => 'File yang diunggah harus berupa gambar.',
+            'img.*.mimes' => 'Gambar harus berformat jpeg, png, jpg, atau gif.',
+            'img.*.max' => 'Ukuran gambar maksimum adalah 1000KB.',
         ];
     }
 }

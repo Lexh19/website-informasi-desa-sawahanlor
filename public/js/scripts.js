@@ -3,10 +3,8 @@
 * Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
 */
-//
-// Scripts
-//
 
+// Scripts
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -16,9 +14,9 @@ window.addEventListener('DOMContentLoaded', event => {
             return;
         }
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
+            navbarCollapsible.classList.remove('navbar-shrink');
         } else {
-            navbarCollapsible.classList.add('navbar-shrink')
+            navbarCollapsible.classList.add('navbar-shrink');
         }
     };
 
@@ -35,7 +33,7 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#mainNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -72,28 +70,96 @@ window.addEventListener('DOMContentLoaded', event => {
 
     setInterval(slideGallery, 2000);
 
-
     // Services Slider
     const serviceSlider = document.querySelector('.slider');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
-    const serviceItemsVisible = 3; // Jumlah item yang terlihat sekaligus
-    const serviceTotalItems = document.querySelectorAll('.slider-item').length;
-    const serviceSlideWidth = document.querySelector('.slider-item').offsetWidth;
+    const serviceItems = document.querySelectorAll('.slider-item');
+    let serviceItemsVisible = window.innerWidth <= 768 ? 1 : 3; // 1 item per slide di mobile, 3 di laptop
+    const serviceTotalItems = serviceItems.length;
     let serviceCurrentIndex = 0;
 
+    // Hitung ulang lebar item pada resize
+    let serviceSlideWidth = document.querySelector('.slider-item').offsetWidth;
+
+    // Fungsi untuk update slider
+    function updateSlider() {
+        serviceSlideWidth = document.querySelector('.slider-item').offsetWidth; // Recalculate width on resize
+        serviceSlider.style.transform = `translateX(-${serviceCurrentIndex * serviceSlideWidth}px)`;
+    }
+
+    // Event listener untuk tombol 'prev'
     prevBtn.addEventListener('click', function () {
-        if (serviceCurrentIndex > 0) {
-            serviceCurrentIndex -= serviceItemsVisible;
-            serviceSlider.style.transform = `translateX(-${serviceCurrentIndex * serviceSlideWidth}px)`;
+        const newServiceCurrentIndex = serviceCurrentIndex - serviceItemsVisible;
+        if (newServiceCurrentIndex >= 0) {
+            serviceCurrentIndex = newServiceCurrentIndex;
+            updateSlider();
+            updateNavDots();
         }
     });
 
+    // Event listener untuk tombol 'next'
     nextBtn.addEventListener('click', function () {
-        if (serviceCurrentIndex < serviceTotalItems - serviceItemsVisible) {
-            serviceCurrentIndex += serviceItemsVisible;
-            serviceSlider.style.transform = `translateX(-${serviceCurrentIndex * serviceSlideWidth}px)`;
+        const newServiceCurrentIndex = serviceCurrentIndex + serviceItemsVisible;
+        if (newServiceCurrentIndex < serviceTotalItems) {
+            serviceCurrentIndex = newServiceCurrentIndex;
+            updateSlider();
+            updateNavDots();
         }
     });
 
+    // Navigasi dots
+    const navDots = document.querySelectorAll('.nav-dot');
+
+    function updateNavDots() {
+        navDots.forEach(dot => dot.classList.remove('active'));
+
+        // Menghitung jumlah dots berdasarkan serviceItemsVisible
+        const numDots = Math.ceil(serviceTotalItems / serviceItemsVisible);
+        
+        // Menyembunyikan dots yang tidak perlu
+        navDots.forEach((dot, index) => {
+            dot.style.display = (index < numDots) ? 'block' : 'none';
+        });
+
+        const currentDotIndex = Math.floor(serviceCurrentIndex / serviceItemsVisible);
+        navDots[currentDotIndex].classList.add('active');
+    }
+
+    // Event listener untuk window resize
+    window.addEventListener('resize', () => {
+        const newItemsVisible = window.innerWidth <= 768 ? 1 : 3;
+        if (serviceItemsVisible !== newItemsVisible) {
+            serviceItemsVisible = newItemsVisible;
+            serviceCurrentIndex = 0; // Reset index pada resize
+            updateSlider();
+            updateNavDots();
+        }
+    });
+
+    // Initialize slider dan nav-dots
+    updateSlider();
+    updateNavDots();
+
+    // Homepage settings
+    // Logika untuk efek fade (jika diinginkan)
+    let images = document.querySelectorAll('.background-image');
+    let currentImageIndex = 0;
+
+    function fadeImages() {
+        // Menyembunyikan semua gambar
+        images.forEach((image) => {
+            image.classList.remove('active'); // Hapus class 'active' dari semua gambar
+        });
+
+        // Tampilkan gambar yang sesuai dengan index
+        images[currentImageIndex].classList.add('active'); 
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Loop gambar
+
+        // Panggil kembali fungsi setelah 3 detik
+        setTimeout(fadeImages, 3000);
+    }
+
+    // Mulai dengan memanggil fungsi fade
+    fadeImages();
 });

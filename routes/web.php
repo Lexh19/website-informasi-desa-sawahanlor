@@ -20,3 +20,17 @@ Route::get('/', function () {
         'abouts'=> $abouts
     ]);
 });
+use Fruitcake\Cors\HandleCors;
+
+Route::middleware([HandleCors::class])->group(function () {
+    Route::get('/storage/{filename}', function ($filename) {
+        // Rute untuk mengakses file gambar di storage
+        $path = storage_path('app/public/' . $filename);
+        if (!file_exists($path)) {
+            abort(404);
+        }
+
+        return response()->file($path);
+    });
+    // Tambahkan rute lain yang perlu CORS di sini
+});
