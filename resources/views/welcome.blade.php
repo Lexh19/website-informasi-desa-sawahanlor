@@ -131,8 +131,8 @@
                         @if(!empty($serviss))
                             @foreach($serviss as $servis)
                                 <div class="slider-item">
-                                    <div class="card h-100 text-center">
-                                        <img src="{{ asset('storage/' . $servis->img) }}" class="card-img-top">
+                                    <div class="card h-200 text-center">
+                                        <img class="card-img-top" src="{{ asset('storage/' . $servis->img) }}" >
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $servis->title }}</h5>
                                             <p class="card-text">{{ $servis->subtitle }}</p>
