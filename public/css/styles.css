@@ -11245,10 +11245,50 @@ html {
         font-size: 18px;
     }
 
+  /* fotter color */
 
 .copyright {
   background-color: #3B5F89;
 }
+
+  /* New Home Styling */
+  .masthead {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .masthead .container {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .masthead .background-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100vh;
+    display: flex;
+    animation: slide 30s linear infinite;
+  }
+
+  .masthead .background-image {
+    width: 33.33%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-66.66%); } /* Menggeser gambar ke kiri */
+  }
+
 
 /* Gallery Section */
 .gallery {
@@ -11420,40 +11460,3 @@ html {
     }
   }
 
-  /* New Home Styling */
-  .masthead {
-    position: relative;
-    height: 100vh; /* Full height sesuai dengan viewport */
-    overflow: hidden; /* Pastikan tidak ada overflow */
-  }
-
-  .masthead .container {
-    position: relative;
-    z-index: 1; /* Pastikan teks di depan gambar */
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .masthead .background-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300%; /* Lebar 3 kali lipat untuk menampung 3 gambar */
-    height: 100vh;
-    display: flex; /* Mengatur gambar dalam satu baris */
-    animation: slide 30s linear infinite; /* Animasi untuk pergerakan gambar */
-  }
-
-  .masthead .background-image {
-    width: 33.33%; /* Lebar gambar diatur ke 1/3 untuk 3 gambar */
-    height: 100%;
-    object-fit: cover; /* Memastikan gambar tidak terdistorsi */
-  }
-
-  @keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-66.66%); } /* Menggeser gambar ke kiri */
-  }
