@@ -42,12 +42,13 @@
         </nav>
 
 <!-- Home -->
-@if($homes->isNotEmpty()) 
+@if($homes->isNotEmpty())
     @foreach($homes as $home)
         <section class="masthead text-center" id="home">
             <div class="background-images">
                 @if($home->img)
                     @foreach(explode(',', $home->img) as $image)
+
                         @php
                             // Membersihkan karakter yang tidak diperlukan seperti tanda kutip atau kurung
                             $image = trim($image, '[]"');
@@ -66,7 +67,7 @@
                 <h1 class="masthead-heading text-uppercase text-white mb-0">
                     {{ $home->title ?: 'Title tidak tersedia' }}
                 </h1>
-                
+
                 <p class="masthead-subheading font-weight-light text-white mb-0">
                     {{ $home->subtitle ?: 'Subtitle tidak tersedia' }}
                 </p>
@@ -77,9 +78,6 @@
     <!-- Pesan jika tidak ada data di $homes -->
     <p class="text-center">Data tidak tersedia.</p>
 @endif
-
-
-
 
         <!-- About Us Section-->
         <section class="about mt-5" id="aboutus">
