@@ -1,22 +1,25 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Desa Wisata</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    </head>
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+            <meta name="description" content="Temukan informasi wisata terbaik di Desa Wisata Bulak Sawah Edupark, termasuk galeri, paket wisata, dan kontak untuk reservasi." />
+            <meta name="keywords" content="desa wisata, bulak sawah, edukasi wisata, paket wisata, wisata keluarga, sawahan lor, wedomartani" />
+            <meta name="author" content="KKN UNY" />
+            <title>Desa Wisata Bulak Sawah Edupark</title>
+            <!-- Favicon-->
+            <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+            <!-- Font Awesome icons (free version)-->
+            <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+            <!-- Google fonts-->
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+            <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+            <!-- Core theme CSS (includes Bootstrap)-->
+            <link href="css/styles.css" rel="stylesheet" />
+            <!-- Optional: Font Awesome for better icons support-->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        </head>
+
 
     <body id="page-top">
         <!-- Navigation-->
@@ -48,36 +51,23 @@
             <div class="background-images">
                 @if($home->img)
                     @foreach(explode(',', $home->img) as $image)
-
                         @php
-                            // Membersihkan karakter yang tidak diperlukan seperti tanda kutip atau kurung
                             $image = trim($image, '[]"');
                         @endphp
-                        <!-- Menampilkan setiap gambar -->
-                        <img src="{{ asset('storage/' . ltrim($image, '/')) }}" alt="Gambar" class="background-image">
+                        <img src="{{ asset('storage/' . ltrim($image, '/')) }}" alt="Desa Wisata Bulak Sawah" class="background-image">
                     @endforeach
                 @else
-                    <!-- Menampilkan gambar default jika img kosong -->
-                    <img src="{{ asset('images/default.jpg') }}" alt="Gambar Default" class="background-image">
+                    <img src="{{ asset('images/default.jpg') }}" alt="Gambar Default Desa Wisata" class="background-image">
                 @endif
             </div>
-
             <div class="container d-flex align-items-center flex-column">
-                <!-- Pastikan title dan subtitle ada -->
-                <h1 class="masthead-heading text-uppercase text-white mb-0">
-                    {{ $home->title ?: 'Title tidak tersedia' }}
-                </h1>
-
-                <p class="masthead-subheading font-weight-light text-white mb-0">
-                    {{ $home->subtitle ?: 'Subtitle tidak tersedia' }}
-                </p>
+                <h1 class="masthead-heading text-uppercase text-white mb-0">{{ $home->title ?: 'Title tidak tersedia' }}</h1>
+                <p class="masthead-subheading font-weight-light text-white mb-0">{{ $home->subtitle ?: 'Subtitle tidak tersedia' }}</p>
             </div>
         </section>
     @endforeach
-@else
-    <!-- Pesan jika tidak ada data di $homes -->
-    <p class="text-center">Data tidak tersedia.</p>
 @endif
+
 
         <!-- About Us Section-->
         <section class="about mt-5" id="aboutus">
@@ -215,4 +205,4 @@
         <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
 
     </body>
-    </html>
+</html>
