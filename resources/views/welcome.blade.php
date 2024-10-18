@@ -87,7 +87,6 @@
             @else
                 <p>No services available at the moment.</p>
             @endif
-
         </section>
 
         <!-- Our gallery Section -->

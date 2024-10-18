@@ -133,17 +133,21 @@
 
 /* Mobile settings for About Us section */
 @media (max-width: 768px) {
-  .about {
-    padding: 1rem 0.5rem;
-  }
+    .about .row {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
-  .about h3 {
-    margin-top: 0;
-  }
+    .about .row .col-6 {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
 
-  .about p {
-    margin-bottom: 1rem;
-  }
+    .about .row .col-6 p {
+      text-align: justify;
+      padding: 0 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -170,24 +174,45 @@
   }
 }
 
+
+
+
 /* Gallery Section */
 .gallery {
-  padding: 2rem 1rem;
+    padding: 2rem 1rem;
+
+    background-color: #E5E5E5; /* Light gray background */
+    padding: 60px 0; /* Space around the gallery section */
+}
+.gallery-slider {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Adjust based on your design */
+    margin: 0 auto;
 }
 
-.gallery-slider {
-  flex-wrap: wrap;
+.gallery-wrapper {
+    display: flex;
+    transition: transform 0.8s ease;
 }
 
 .gallery-item {
-  width: 50%;
-  margin-bottom: 1rem;
+    min-width: 33.33%; /* Same as the service section */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 10px; /* Same padding as the service items */
+    margin-right: 20px; /* Add space between gallery items */
+}
+
+.gallery-item:last-child {
+    margin-right: 0; /* Remove the margin on the last item */
 }
 
 .gallery-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0.25rem; /* Add a slight border-radius for consistency */
+    object-fit: cover; /* Ensure the images cover the area without distortion */
 }
 
 /* Tour Package Section */
@@ -242,8 +267,8 @@
   }
 
   .gallery-item {
-    width: 100%;
-  }
+    flex: 0 0 100%; /* On mobile, show 1 image per row */
+    margin-right: 10px; /* Space between items on mobile */  }
 
   .servis .card {
     flex-direction: column;
@@ -259,8 +284,8 @@
     height: 30vh;
   }
 
-  .gallery-slider {
-    flex-direction: column;
+  .gallery-item {
+    width: 100%;
   }
 
   .servis .card {
@@ -11165,8 +11190,8 @@ html {
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
-  font-size: 2.75rem;
-  line-height: 2.75rem;
+  font-size: 1.50rem;
+  line-height: 2.00rem;
 }
 .masthead .masthead-subheading {
   font-size: 1.25rem;
@@ -11287,43 +11312,6 @@ html {
     0% { transform: translateX(0); }
     100% { transform: translateX(-66.66%); } /* Menggeser gambar ke kiri */
   }
-
-
-/* Gallery Section */
-.gallery {
-    background-color: #E5E5E5; /* Light gray background */
-    padding: 60px 0; /* Space around the gallery section */
-}
-.gallery-slider {
-    overflow: hidden;
-    width: 100%;
-    max-width: 1000px; /* Adjust based on your design */
-    margin: 0 auto;
-}
-
-.gallery-wrapper {
-    display: flex;
-    transition: transform 0.8s ease;
-}
-
-.gallery-item {
-    min-width: 33.33%; /* Same as the service section */
-    box-sizing: border-box; /* Include padding and border in width */
-    padding: 10px; /* Same padding as the service items */
-    margin-right: 20px; /* Add space between gallery items */
-}
-
-.gallery-item:last-child {
-    margin-right: 0; /* Remove the margin on the last item */
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0.25rem; /* Add a slight border-radius for consistency */
-    object-fit: cover; /* Ensure the images cover the area without distortion */
-}
 
 
 
