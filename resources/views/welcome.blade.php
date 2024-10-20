@@ -183,7 +183,7 @@
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/bulaksawah_edupark"><i class="fab fa-fw fa-instagram"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/share/GNgJVJQJPbKhtDkJ/?mibextid=qi2Omg"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.tiktok.com/@bulak.sawah_edupa?_t=8qElzN3TKyK&_r=1"><i class="fab fa-fw fa-tiktok"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="wa.me/6281578061227"><i class="fab fa-fw fa-whatsapp"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://api.whatsapp.com/send/?phone=6281578061227&text&type=phone_number&app_absent=0"><i class="fab fa-fw fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
