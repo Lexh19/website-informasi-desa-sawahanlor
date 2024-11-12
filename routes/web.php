@@ -4,6 +4,7 @@ use App\Models\Home;
 use App\Models\About;
 use App\Models\Servis;
 use App\Models\Gallery;
+use Fruitcake\Cors\HandleCors;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,7 +21,6 @@ Route::get('/', function () {
         'abouts'=> $abouts
     ]);
 });
-use Fruitcake\Cors\HandleCors;
 
 Route::middleware([HandleCors::class])->group(function () {
     Route::get('/storage/{filename}', function ($filename) {
