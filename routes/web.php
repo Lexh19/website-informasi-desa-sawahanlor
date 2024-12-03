@@ -32,5 +32,4 @@ Route::middleware([HandleCors::class])->group(function () {
 
         return response()->file($path);
     });
-    // Tambahkan rute lain yang perlu CORS di sini
 });
